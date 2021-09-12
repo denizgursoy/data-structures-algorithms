@@ -1,22 +1,20 @@
 package tr.com.sort;
 
-import java.util.Collections;
-import java.util.List;
-
 import static tr.com.utils.Commons.lessThan;
+import static tr.com.utils.Commons.swap;
 
 public class SortingAlgorithms {
 
-    public static void sort(List<? extends Comparable> list) {
+    public static <T extends Comparable<T>> void selectionSort(T[] array) {
 
-        int N = list.size();
+        int N = array.length;
 
         for (int i = 0; i < N; i++) {
             int min = i;
-            for (int j = i; j < N; j++) {
-                min = lessThan(list.get(j), list.get(min)) ? j : min;
+            for (int j = i + 1; j < N; j++) {
+                if( lessThan(array[j], array[min])) min= j;
             }
-            Collections.swap(list, min, i);
+            swap(array,min,i);
         }
     }
 }
