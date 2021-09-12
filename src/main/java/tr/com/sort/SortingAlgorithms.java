@@ -35,5 +35,16 @@ public class SortingAlgorithms {
             }
         }
     }
+
+    public static <T extends Comparable<T>> void insertionSort(T[] array) {
+        int N = array.length;
+
+        for (int i = 1; i < N; i++) {
+            for (int j = i; j > 0 && lessThan(array[j],array[j-1]); j--) {
+                swap(array,j,j-1);
+            }
+        }
+
+    }
 }
 

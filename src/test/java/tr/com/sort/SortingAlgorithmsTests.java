@@ -4,8 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
-import static tr.com.sort.SortingAlgorithms.bubbleSort;
-import static tr.com.sort.SortingAlgorithms.selectionSort;
+import static tr.com.sort.SortingAlgorithms.*;
 
 public class SortingAlgorithmsTests {
     Integer[] integers = null;
@@ -25,6 +24,12 @@ public class SortingAlgorithmsTests {
     @Test
     public void bubbleSortTest(){
         bubbleSort(integers);
+        assertArrayEquals(integers, sorted);
+    }
+
+    @Test
+    public void insertionSortTest(){
+        insertionSort(integers);
         assertArrayEquals(integers, sorted);
     }
 }
