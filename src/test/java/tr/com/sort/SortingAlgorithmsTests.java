@@ -3,16 +3,20 @@ package tr.com.sort;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Random;
+
 import static org.junit.Assert.assertArrayEquals;
 import static tr.com.sort.SortingAlgorithms.*;
 
 public class SortingAlgorithmsTests {
     Integer[] integers = null;
-    Integer[] sorted = new Integer[]{1, 3, 4, 21, 23, 45};
+    Integer[] sorted = null;
 
     @Before
     public void initialize() {
-        integers = new Integer[]{23, 1, 4, 45, 21, 3};
+        integers = new Random().ints(0, 999).limit(50).boxed().toArray(Integer[]::new);
+        sorted = Arrays.stream(integers).sorted().toArray(Integer[]::new);
     }
 
     @Test
@@ -22,14 +26,20 @@ public class SortingAlgorithmsTests {
     }
 
     @Test
-    public void bubbleSortTest(){
+    public void bubbleSortTest() {
         bubbleSort(integers);
         assertArrayEquals(integers, sorted);
     }
 
     @Test
-    public void insertionSortTest(){
+    public void insertionSortTest() {
         insertionSort(integers);
+        assertArrayEquals(integers, sorted);
+    }
+
+    @Test
+    public void shellSortTest() {
+        shellSort(integers);
         assertArrayEquals(integers, sorted);
     }
 }

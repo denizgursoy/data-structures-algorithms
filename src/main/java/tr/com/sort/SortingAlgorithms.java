@@ -40,11 +40,28 @@ public class SortingAlgorithms {
         int N = array.length;
 
         for (int i = 1; i < N; i++) {
-            for (int j = i; j > 0 && lessThan(array[j],array[j-1]); j--) {
-                swap(array,j,j-1);
+            for (int j = i; j > 0 && lessThan(array[j], array[j - 1]); j--) {
+                swap(array, j, j - 1);
             }
         }
 
     }
+
+    public static <T extends Comparable<T>> void shellSort(T[] array) {
+        int N = array.length;
+        int h = 1;
+
+        while (h < N / 3) h = 3 * h + 1;
+
+        while (h >= 1) {
+            for (int i = h; i < N; i++) {
+                for (int j = i; j >= h && lessThan(array[j], array[j - h]); j -= h) {
+                    swap(array, j , j - h);
+                }
+            }
+            h /= 3;
+        }
+    }
+
 }
 
