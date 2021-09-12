@@ -12,9 +12,27 @@ public class SortingAlgorithms {
         for (int i = 0; i < N; i++) {
             int min = i;
             for (int j = i + 1; j < N; j++) {
-                if( lessThan(array[j], array[min])) min= j;
+                if (lessThan(array[j], array[min])) min = j;
             }
-            swap(array,min,i);
+            swap(array, min, i);
+        }
+    }
+
+
+    public static <T extends Comparable<T>> void bubbleSort(T[] array) {
+        int N = array.length;
+        for (int i = 0; i < N - 1; i++) {
+            boolean swapped = false;
+            for (int j = 0; j < N - i - 1; j++) {
+
+                if (lessThan(array[j + 1], array[j])) {
+                    swapped = true;
+                    swap(array, j, j + 1);
+                }
+            }
+            if (!swapped) {
+                return;
+            }
         }
     }
 }
