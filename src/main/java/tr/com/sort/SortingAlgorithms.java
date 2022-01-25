@@ -56,12 +56,34 @@ public class SortingAlgorithms {
         while (h >= 1) {
             for (int i = h; i < N; i++) {
                 for (int j = i; j >= h && lessThan(array[j], array[j - h]); j -= h) {
-                    swap(array, j , j - h);
+                    swap(array, j, j - h);
                 }
             }
             h /= 3;
         }
     }
+
+    public static <T extends Comparable<T>> void quickSort(T[] array) {
+        sortByQuickSort(array, 0, array.length - 1);
+    }
+
+    public static <T extends Comparable<T>> void sortByQuickSort(T[] array, int low, int high) {
+        if (low < high) {
+            return;
+        }
+
+
+
+        int pi = partition(array, 0, array.length);
+
+        sortByQuickSort(array, low, pi - 1);
+        sortByQuickSort(array, pi + 1, high);
+    }
+
+    public static <T extends Comparable<T>> int partition(T[] array, int low, int high) {
+    }
+
+
 
 }
 

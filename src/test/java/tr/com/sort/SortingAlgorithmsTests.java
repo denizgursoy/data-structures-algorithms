@@ -42,4 +42,10 @@ public class SortingAlgorithmsTests {
         shellSort(integers);
         assertArrayEquals(integers, sorted);
     }
+
+    /*@Test
+    public void quickSortTest(){
+        quickSort(integers);
+        assertArrayEquals(integers, sorted);
+    }*/
 }
