@@ -81,6 +81,7 @@ public class SortingAlgorithms {
     }
 
     public static <T extends Comparable<T>> int partition(T[] array, int low, int high) {
+        return 1;
     }
 
 
