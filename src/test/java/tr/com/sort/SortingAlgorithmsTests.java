@@ -43,9 +43,9 @@ public class SortingAlgorithmsTests {
         assertArrayEquals(integers, sorted);
     }
 
-    /*@Test
+    @Test
     public void quickSortTest(){
         quickSort(integers);
         assertArrayEquals(integers, sorted);
-    }*/
+    }
 }

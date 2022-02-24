@@ -69,21 +69,26 @@ public class SortingAlgorithms {
 
     public static <T extends Comparable<T>> void sortByQuickSort(T[] array, int low, int high) {
         if (low < high) {
-            return;
+            int pi = partition(array, 0, high);
+
+            sortByQuickSort(array, low, pi - 1);
+            sortByQuickSort(array, pi + 1, high);
         }
-
-
-
-        int pi = partition(array, 0, array.length);
-
-        sortByQuickSort(array, low, pi - 1);
-        sortByQuickSort(array, pi + 1, high);
     }
 
     public static <T extends Comparable<T>> int partition(T[] array, int low, int high) {
-        return 1;
-    }
+        int pivot = high;
+        int i = low - 1;
 
+        for (int j = low; j <= high-1; j++) {
+            if (lessThan(array[j],array[pivot])) {
+                i++;
+                swap(array,j,i);
+            }
+        }
+        swap(array,i+1,pivot);
+        return i+1;
+    }
 
 
 }
